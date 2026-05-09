@@ -4,11 +4,6 @@
   :background-mode 'dark
   "A custom port of sonokai")
 
-;; TODO:
-;; 1. Investigate why most theme have thingy like min-colors
-;; 2. Write a custom face for number in prog mode
-;; 3. Some colors are not filled because they are not used in my version of the theme clean them
-
 (let ((bg-dim "#141518") (bg0 "#2c2e34")
       (bg1 "#33353f") (bg2 "#363944")
       (bg3 "#3be348") (bg4 "#414550")
@@ -38,11 +33,34 @@
    `(font-lock-preprocessor-face ((t (:foreground ,red))))
    `(font-lock-constant-face ((t (:foreground ,purple))))
    `(font-lock-doc-face ((t (:foreground ,yellow))))
+   `(font-lock-warning-face ((t (:foreground ,orange :bold t))))
+   `(warning ((t (:foreground ,orange))))
+   `(error ((t (:foreground ,red :bold t))))
+   `(success ((t (:foreground ,green))))
    `(link ((t (:foreground ,blue :underline t))))
    `(button ((t (:foreground ,blue :underline t))))
    `(region ((t (:background ,bg4 :foreground nil))))
    `(cursor ((t (:background ,fg))))
-   `(mode-line ((t (:foreground ,bg-dim :background ,fg))))
+   `(mode-line          ((t (:background ,bg1 :foreground ,fg   :box nil))))
+   `(mode-line-inactive ((t (:background ,bg0 :foreground ,grey :box nil))))
+   `(mode-line-highlight ((t (:background ,bg4 :box nil))))
+   `(mode-line-buffer-id ((t (:foreground ,fg))))
+
+   ;; doom-modeline segments
+   `(doom-modeline-bar              ((t (:background ,green  :inherit nil))))
+   `(doom-modeline-bar-inactive     ((t (:background ,bg4    :inherit nil))))
+   `(doom-modeline-buffer-path      ((t (:foreground ,grey   :inherit nil))))
+   `(doom-modeline-project-dir      ((t (:foreground ,blue   :inherit nil))))
+   `(doom-modeline-buffer-file-name ((t (:foreground ,fg     :inherit nil))))
+   `(doom-modeline-buffer-major-mode ((t (:foreground ,green  :inherit nil))))
+   `(doom-modeline-buffer-modified  ((t (:foreground ,orange :inherit nil))))
+   `(doom-modeline-buffer-minor-mode ((t (:foreground ,grey   :inherit nil))))
+   `(doom-modeline-info             ((t (:foreground ,green  :inherit nil))))
+   `(doom-modeline-warning          ((t (:foreground ,yellow :inherit nil))))
+   `(doom-modeline-urgent           ((t (:foreground ,red    :inherit nil))))
+   `(doom-modeline-lsp-success      ((t (:foreground ,green  :inherit nil))))
+   `(doom-modeline-lsp-warning      ((t (:foreground ,yellow :inherit nil))))
+   `(doom-modeline-lsp-error        ((t (:foreground ,red    :inherit nil))))
 
    ;; minibuffer
    `(minibuffer-prompt ((t (:foreground ,fg))))
